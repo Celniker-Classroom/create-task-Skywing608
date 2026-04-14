@@ -63,7 +63,7 @@ btnOutput.addEventListener("click", function() {
     condition = document.querySelector("input[name='condition']:checked");
     rain = document.querySelector("input[name='rain']:checked");
     const recommendation = getClothingRecommendation(temperature, condition, clothing);
-    output.textContent = "We recommend you wear: " + recommendation;
+    output.textContent = "Hi " + userName.value + "! We recommend you wear: " + recommendation;
 });
 
 //Add event listener to the reset button
