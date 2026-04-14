@@ -18,20 +18,20 @@
     website will then use these to help reccomend clothes as well as recommend an umbrella
     or not. The button at the bottom will show your result in a box below. The reset button
     will reset all of the boxes back to blank. -->
-    <h1>Clothing Recommedation</h1>
+    <h1>Clothing Recommendation</h1>
     <h3>Your Name</h3>
     <input type="text" id="myInput" placeholder="Enter your name" />
 
     <h3>Current Temperature</h3>
-    <input type="text" id="currentTemp" placeholder="Please enter the current Temperature:" />
+    <input type="text" id="currentTemp" placeholder="Current Temperature in °F:" />
    
     <h3>Weather Condition</h3>
-    <input type="radio" name="Condition" id="condition1" value="Cloudy"><label for="condtion1">Cloudy</label>
-    <input type="radio" name="Condition" id="condition2" value="Sunny"><label for="condtion2">Sunny</label>
-    <input type="checkbox" name="Condition" id="condition3" value="Rainy"><laber for="condition3">Rainy</laber>
+    <input type="radio" name="condition" id="condition1" value="Cloudy"><label for="condtion1">Cloudy</label>
+    <input type="radio" name="condition" id="condition2" value="Sunny"><label for="condtion2">Sunny</label>
+    <input type="checkbox" name="rain" id="rain" value="Rainy"><label for="condition3">Rainy</label>
     
     <br><br>
-    <button id="btnOutput">Recommend</button>
+    <button id="btnOutput">Submit</button>
     <button id="btnReset" >Reset</button>
     <p id="output" ></p>
 
