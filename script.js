@@ -10,28 +10,23 @@ let recommendation = "";
 
 //List of clothing recommendations based on weather conditions
 let clothing = [
-  {name: "Heavy Jacket", warmth: "heavy"},
-  {name: "Hoodie", warmth: "medium"},
-  {name: "T-shirt", warmth: "light"},
-  {name: "Long Sleeve", warmth: "medium"},
-  {name: "and Shorts", warmth: "light"},
-  {name: "and Pants", warmth: "medium"},
-  {name: "and Heavy Pants", warmth: "heavy"}
+  {name: "A heavy jacket", warmth: "heavy"},
+  {name: "A hoodie", warmth: "medium"},
+  {name: "A t-shirt", warmth: "light"},
+  {name: "long sleeve", warmth: "medium"},
+  {name: "and shorts", warmth: "light"},
+  {name: "and pants", warmth: "medium"},
+  {name: "and heavy pants", warmth: "heavy"},
+  {name: "or light pants", warmth: "light"},
 ];
 
 //Output function
-function getClothingRecommendation(temperature, condition, clothingList) {
+function getClothingRecommendation(temperature, clothingList, rain) {
     let recommendation = "";
-    if (temperature < 50 && condition && condition.value === "Cloudy") {
+    if (temperature < 50) {
         recommendation = clothingList.filter(item => item.warmth === "heavy").map(item => item.name).join(", ");
     }
-    else if (temperature < 50 && condition && condition.value === "Sunny") {
-        recommendation = clothingList.filter(item => item.warmth === "medium").map(item => item.name).join(", ");
-    }
-    else if (temperature >= 50 && temperature < 70 && condition && condition.value === "Cloudy") {
-        recommendation = clothingList.filter(item => item.warmth === "medium").map(item => item.name).join(", ");
-    } 
-    else if (temperature >= 50 && temperature < 70 && condition && condition.value === "Sunny") {
+    else if (temperature >= 50 && temperature < 70) {
         recommendation = clothingList.filter(item => item.warmth === "medium").map(item => item.name).join(", ");
     } 
     else {
@@ -39,7 +34,7 @@ function getClothingRecommendation(temperature, condition, clothingList) {
     }
 
     if (rain && rain.value === "Rainy") {
-        recommendation += ", and bring an umbrella";
+        recommendation += ", also, bring an umbrella";
     }
     
     return recommendation;
@@ -62,7 +57,7 @@ btnOutput.addEventListener("click", function() {
     temperature = parseInt(document.getElementById("currentTemp").value);
     condition = document.querySelector("input[name='condition']:checked");
     rain = document.querySelector("input[name='rain']:checked");
-    const recommendation = getClothingRecommendation(temperature, condition, clothing);
+    const recommendation = getClothingRecommendation(temperature, clothing, rain);
     output.textContent = "Hi " + userName.value + "! We recommend you wear: " + recommendation;
 });
 
