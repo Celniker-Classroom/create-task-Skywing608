@@ -14,7 +14,7 @@ let clothing = [
   {name: "A hoodie", warmth: "medium"},
   {name: "A t-shirt", warmth: "light"},
   {name: "long sleeve", warmth: "medium"},
-  {name: "and shorts", warmth: "light"},
+  {name: "shorts", warmth: "light"},
   {name: "and pants", warmth: "medium"},
   {name: "and heavy pants", warmth: "heavy"},
   {name: "or light pants", warmth: "light"},
@@ -23,7 +23,10 @@ let clothing = [
 //Output function
 function getClothingRecommendation(temperature, clothingList, rain) {
     let recommendation = "";
-    if (temperature < 50) {
+    if (isNaN(temperature)) {
+        return "Please enter a valid temperature.";
+    }
+    else if (temperature < 50) {
         recommendation = clothingList.filter(item => item.warmth === "heavy").map(item => item.name).join(", ");
     }
     else if (temperature >= 50 && temperature < 70) {
