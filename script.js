@@ -22,12 +22,10 @@ function getClothingRecommendation(temperature, clothingList, rain) {
     let matches = [];
     let warmthLevel = "";
 
-    // Selection logic to determine level
     if (temperature < 50) warmthLevel = "heavy";
     else if (temperature < 70) warmthLevel = "medium";
     else warmthLevel = "light";
 
-    // ITERATION: Explicit loop to satisfy the rubric
     for (let i = 0; i < clothingList.length; i++) {
         if (clothingList[i].warmth === warmthLevel) {
             matches.push(clothingList[i].name);
