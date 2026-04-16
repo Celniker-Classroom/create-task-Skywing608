@@ -19,34 +19,43 @@ let clothing = [
 ];
 
 function getClothingRecommendation(temperature, clothingList, rain) {
-    let recommendation = "";
-    if (isNaN(temperature)) {
-        return "Please enter a valid temperature.";
-    }
-    else if (temperature < 50) {
-        recommendation = clothingList.filter(item => item.warmth === "heavy").map(item => item.name).join(", ");
-    }
-    else if (temperature >= 50 && temperature < 70) {
-        recommendation = clothingList.filter(item => item.warmth === "medium").map(item => item.name).join(", ");
-    } 
-    else {
-        recommendation = clothingList.filter(item => item.warmth === "light").map(item => item.name).join(", ");
+    let matches = [];
+    let warmthLevel = "";
+
+    // Selection logic to determine level
+    if (temperature < 50) warmthLevel = "heavy";
+    else if (temperature < 70) warmthLevel = "medium";
+    else warmthLevel = "light";
+
+    // ITERATION: Explicit loop to satisfy the rubric
+    for (let i = 0; i < clothingList.length; i++) {
+        if (clothingList[i].warmth === warmthLevel) {
+            matches.push(clothingList[i].name);
+        }
     }
 
+    let recommendation = matches.join(", ");
     if (rain && rain.value === "Rainy") {
         recommendation += ", also, bring an umbrella";
     }
-    
     return recommendation;
 }
 
 function reset() {
     userName.value = "";
     document.getElementById("currentTemp").value = "";
-    document.querySelectorAll("input[name='condition']").forEach(input => input.checked = false);
-    document.querySelectorAll("input[name='rain']").forEach(input => input.checked = false);
-    output.textContent = "";
 
+    let conditionInputs = document.querySelectorAll("input[name='condition']");
+    for (let i = 0; i < conditionInputs.length; i++) {
+        conditionInputs[i].checked = false;
+    }
+
+    let rainInputs = document.querySelectorAll("input[name='rain']");
+    for (let i = 0; i < rainInputs.length; i++) {
+        rainInputs[i].checked = false;
+    }
+    
+    output.textContent = "";
 }
 
 btnOutput.addEventListener("click", function() {
