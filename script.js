@@ -1,4 +1,3 @@
-//Make all the variables for the input boxes and buttons
 let userName = document.getElementById("myInput");
 let temperature = parseInt(document.getElementById("currentTemp").value);
 let condition = document.querySelector("input[name='condition']:checked");
@@ -8,7 +7,6 @@ let btnOutput = document.getElementById("btnOutput");
 let btnReset = document.getElementById("btnReset");
 let recommendation = "";
 
-//List of clothing recommendations based on weather conditions
 let clothing = [
   {name: "A heavy jacket", warmth: "heavy"},
   {name: "A hoodie", warmth: "medium"},
@@ -20,7 +18,6 @@ let clothing = [
   {name: "or light pants", warmth: "light"},
 ];
 
-//Output function
 function getClothingRecommendation(temperature, clothingList, rain) {
     let recommendation = "";
     if (isNaN(temperature)) {
@@ -43,9 +40,6 @@ function getClothingRecommendation(temperature, clothingList, rain) {
     return recommendation;
 }
 
-
-//reset function
-
 function reset() {
     userName.value = "";
     document.getElementById("currentTemp").value = "";
@@ -55,7 +49,6 @@ function reset() {
 
 }
 
-//Add event listener to the output button
 btnOutput.addEventListener("click", function() {
     temperature = parseInt(document.getElementById("currentTemp").value);
     condition = document.querySelector("input[name='condition']:checked");
@@ -64,7 +57,6 @@ btnOutput.addEventListener("click", function() {
     output.textContent = "Hi " + userName.value + "! We recommend you wear: " + recommendation;
 });
 
-//Add event listener to the reset button
 btnReset.addEventListener("click", function() {
     reset();
 });
