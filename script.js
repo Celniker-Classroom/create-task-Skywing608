@@ -61,7 +61,17 @@ btnOutput.addEventListener("click", function() {
     condition = document.querySelector("input[name='condition']:checked");
     rain = document.querySelector("input[name='rain']:checked");
     const recommendation = getClothingRecommendation(temperature, clothing, rain);
-    output.textContent = "Hi " + userName.value + "! We recommend you wear: " + recommendation;
+    if (!userName.value) {
+        output.textContent = "Please enter your name.";
+        return;
+    }
+    if (isNaN(temperature)) {
+        output.textContent = "Please enter a valid temperature.";
+        return;
+    }
+    else{
+        output.textContent = "Hi " + userName.value + "! We recommend you wear: " + recommendation;
+    }
 });
 
 btnReset.addEventListener("click", function() {
