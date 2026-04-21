@@ -61,14 +61,6 @@ function reset() {
     }
     
     output.textContent = "";
-    
-    pastRecommendations = [];
-    pastRec1.textContent = "_";
-    pastRec2.textContent = "_";
-    pastRec3.textContent = "_";
-    pastRec4.textContent = "_";
-    pastRec5.textContent = "_";
-
 }
 
 btnOutput.addEventListener("click", function() {
@@ -88,19 +80,29 @@ btnOutput.addEventListener("click", function() {
         output.textContent = "Hi " + userName.value + "! We recommend you wear: " + recommendation;
         
         pastRecommendations.push({temp: temperature, rec: recommendation});
-        if (pastRecommendations.length > 3) {
+        if (pastRecommendations.length > 5) {
             pastRecommendations.shift();
         }
         pastRec1.textContent = pastRecommendations[0] ? `Temp: ${pastRecommendations[0].temp}°F - ${pastRecommendations[0].rec}` : "_";
         pastRec2.textContent = pastRecommendations[1] ? `Temp: ${pastRecommendations[1].temp}°F - ${pastRecommendations[1].rec}` : "_";
         pastRec3.textContent = pastRecommendations[2] ? `Temp: ${pastRecommendations[2].temp}°F - ${pastRecommendations[2].rec}` : "_";
-        pastRec4.textContent = pastRecommendations[3] || "_";
-        pastRec5.textContent = pastRecommendations[4] || "_";
+        pastRec4.textContent = pastRecommendations[3] ? `Temp: ${pastRecommendations[3].temp}°F - ${pastRecommendations[3].rec}` : "_";
+        pastRec5.textContent = pastRecommendations[4] ? `Temp: ${pastRecommendations[4].temp}°F - ${pastRecommendations[4].rec}` : "_";
     }
 });
 
 btnReset.addEventListener("click", function() {
     reset();
+});
+
+let btnResetTable = document.getElementById("btnResetTable");
+btnResetTable.addEventListener("click", function() {
+    pastRecommendations = [];
+    pastRec1.textContent = "_";
+    pastRec2.textContent = "_";
+    pastRec3.textContent = "_";
+    pastRec4.textContent = "_";
+    pastRec5.textContent = "_";
 });
 
 

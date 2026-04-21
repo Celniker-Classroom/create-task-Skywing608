@@ -144,6 +144,27 @@ button {
   box-shadow: 0 6px 20px rgba(229, 62, 62, 0.6);
 }
 
+#btnResetTable {
+  background-color: #3182ce;
+  color: white;
+  box-shadow: 0 4px 15px rgba(49, 130, 206, 0.4);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+#btnResetTable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(49, 130, 206, 0.6);
+}
+
 .input-group {
   width: 100%;
   margin-bottom: 20px;
