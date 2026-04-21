@@ -9,38 +9,53 @@
 </head>
 <body>
     <div class="container">
-        <h1>Clothing Recommendation</h1>
-        
-        <div class="input-group">
-            <h3>Your Name</h3>
-            <input type="text" id="myInput" placeholder="Enter your name" />
+        <div class="main-content">
+            <h1>Clothing Recommendation</h1>
+            
+            <div class="input-group">
+                <h3>Your Name</h3>
+                <input type="text" id="myInput" placeholder="Enter your name" />
+            </div>
+
+            <div class="input-group">
+                <h3>Current Temperature</h3>
+                <input type="number" id="currentTemp" placeholder="Temperature" min="-50" max="120" />
+            </div>
+           
+            <div class="input-group">
+                <h3>Weather Condition</h3>
+                <div class="radio-group">
+                    <input type="radio" name="condition" id="condition1" value="Cloudy">
+                    <label for="condition1">Cloudy</label>
+                    
+                    <input type="radio" name="condition" id="condition2" value="Sunny">
+                    <label for="condition2">Sunny</label>
+                    
+                    <input type="checkbox" name="rain" id="condition3" value="Rainy">
+                    <label for="condition3">Rainy</label>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button id="btnOutput">Get Recommendation</button>
+                <button id="btnReset">Reset</button>
+            </div>
+            
+            <div id="output"></div>
         </div>
 
-        <div class="input-group">
-            <h3>Current Temperature</h3>
-            <input type="number" id="currentTemp" placeholder="Temperature" min="-50" max="120" />
+        <div class="past-recs-section">
+            <h3 class="pastRecs-title">Past Recommendations</h3>
+            <table class="pastRecs">
+                <tbody>
+                    <tr><td id="pastRec1">_</td></tr>
+                    <tr><td id="pastRec2">_</td></tr>
+                    <tr><td id="pastRec3">_</td></tr>
+                    <tr><td id="pastRec4">_</td></tr>
+                    <tr><td id="pastRec5">_</td></tr>
+                </tbody>
+            </table>
         </div>
-       
-        <div class="input-group">
-            <h3>Weather Condition</h3>
-            <div class="radio-group">
-                <input type="radio" name="condition" id="condition1" value="Cloudy">
-                <label for="condition1">Cloudy</label>
-                
-                <input type="radio" name="condition" id="condition2" value="Sunny">
-                <label for="condition2">Sunny</label>
-                
-                <input type="checkbox" name="rain" id="condition3" value="Rainy">
-                <label for="condition3">Rainy</label>
-            </div>
-        </div>
-        
-        <div class="button-group">
-            <button id="btnOutput">Get Recommendation</button>
-            <button id="btnReset">Reset</button>
-        </div>
-        
-        <div id="output"></div>
     </div>
 </body>
 </html>

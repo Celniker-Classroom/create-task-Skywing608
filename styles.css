@@ -23,10 +23,10 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.2);
   text-align: center;
-  max-width: 600px;
+  max-width: 1200px;
   width: 90%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 30px;
   line-height: 1.8;
   backdrop-filter: blur(10px);
@@ -154,5 +154,33 @@ button {
   gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.pastRecs {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pastRecs td {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #f7fafc;
+  text-align: left;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.past-recs-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
