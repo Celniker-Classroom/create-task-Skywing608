@@ -13,7 +13,7 @@ let pastRec4 = document.getElementById("pastRec4");
 let pastRec5 = document.getElementById("pastRec5");
 
 let pastRecommendations = [];
-
+// CLOTHING LIST WITH WARMTH LEVELS
 let clothing = [
   {name: "A heavy jacket", warmth: "heavy"},
   {name: "A hoodie", warmth: "medium"},
@@ -24,7 +24,7 @@ let clothing = [
   {name: "and heavy pants", warmth: "heavy"},
   {name: "or light pants", warmth: "light"},
 ];
-
+// FUNCTION TO GET CLOTHING RECOMMENDATION BASED ON TEMPERATURE AND RAIN
 function getClothingRecommendation(temperature, clothingList, rain) {
     let matches = [];
     let warmthLevel = "";
@@ -45,7 +45,7 @@ function getClothingRecommendation(temperature, clothingList, rain) {
     }
     return recommendation;
 }
-
+// FUNCTION TO RESET ALL INPUTS AND OUTPUT
 function reset() {
     userName.value = "";
     document.getElementById("currentTemp").value = "";
@@ -62,12 +62,13 @@ function reset() {
     
     output.textContent = "";
 }
-
+// EVENT LISTENER FOR OUTPUT BUTTON
 btnOutput.addEventListener("click", function() {
     temperature = parseInt(document.getElementById("currentTemp").value);
     condition = document.querySelector("input[name='condition']:checked");
     rain = document.querySelector("input[name='rain']:checked");
     const recommendation = getClothingRecommendation(temperature, clothing, rain);
+    // VALIDATION CHECKS
     if (!userName.value) {
         output.textContent = "Please enter your name.";
         return;
@@ -78,7 +79,7 @@ btnOutput.addEventListener("click", function() {
     }
     else{
         output.textContent = "Hi " + userName.value + "! We recommend you wear: " + recommendation;
-        
+        // UPDATE PAST RECOMMENDATIONS
         pastRecommendations.push({temp: temperature, rec: recommendation});
         if (pastRecommendations.length > 5) {
             pastRecommendations.shift();
@@ -90,11 +91,11 @@ btnOutput.addEventListener("click", function() {
         pastRec5.textContent = pastRecommendations[4] ? `Temp: ${pastRecommendations[4].temp}°F - ${pastRecommendations[4].rec}` : "_";
     }
 });
-
+// EVENT LISTENER FOR RESET BUTTON
 btnReset.addEventListener("click", function() {
     reset();
 });
-
+// EVENT LISTENER FOR RESET TABLE BUTTON
 let btnResetTable = document.getElementById("btnResetTable");
 btnResetTable.addEventListener("click", function() {
     pastRecommendations = [];
@@ -104,5 +105,3 @@ btnResetTable.addEventListener("click", function() {
     pastRec4.textContent = "_";
     pastRec5.textContent = "_";
 });
-
-
