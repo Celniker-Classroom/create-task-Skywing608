@@ -1,3 +1,23 @@
+// BACKGROUND COLOR SELECTOR FUNCTIONALITY
+let bgColorPicker = document.getElementById("bgColorPicker");
+let presetBtns = document.querySelectorAll(".preset-btn");
+
+function changeBackground(color) {
+    document.body.style.background = color;
+    bgColorPicker.value = color;
+}
+
+bgColorPicker.addEventListener("change", function() {
+    changeBackground(this.value);
+});
+
+presetBtns.forEach(btn => {
+    btn.addEventListener("click", function() {
+        const color = window.getComputedStyle(this).backgroundColor;
+        changeBackground(color);
+    });
+});
+
 // VARIABLES TO ACCESS DOC ELEMENTS
 let userName = document.getElementById("myInput");
 let temperature = parseInt(document.getElementById("currentTemp").value);
@@ -106,3 +126,4 @@ btnResetTable.addEventListener("click", function() {
     pastRec4.textContent = "_";
     pastRec5.textContent = "_";
 });
+

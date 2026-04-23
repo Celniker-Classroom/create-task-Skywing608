@@ -15,6 +15,59 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   line-height: 1.6;
   color: #333;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Color Selector Section */
+.color-selector-section {
+  background-color: transparent;
+  padding: 15px 0 0 0;
+  margin-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.color-selector-section h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.color-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#bgColorPicker {
+  width: 40px;
+  height: 35px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.preset-colors {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.preset-btn {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.preset-btn:hover {
+  transform: scale(1.15);
+  border-color: #333;
 }
 /* Container Styles */
 .container {
