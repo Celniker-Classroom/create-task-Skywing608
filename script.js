@@ -1,3 +1,4 @@
+// VARIABLES TO ACCESS DOC ELEMENTS
 let userName = document.getElementById("myInput");
 let temperature = parseInt(document.getElementById("currentTemp").value);
 let condition = document.querySelector("input[name='condition']:checked");
